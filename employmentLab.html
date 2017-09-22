@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Employment Data</title>
+	</head>
+	<body>
+
+		<h1>Employment Data</h1>
+		<p>Exercise with JSON</p>
+
+		<div id="output"></div>
+		<h1>The average age of the people in this data set is below.</h1>
+		<div id="total"></div>
+		<script src="employmentLab.js"></script>
+		<script>
+		var output = "";
+		var output = "<table>" + "<tr>" + "<th> Name </th>" + "<th> Age </th>" + "<th> Marital Status</th>" + "<th> Employment </th>" + "<th> City </th>";
+		for(var x = 0; x < employee.length; x++){
+			var name = employee[x].name ;
+			var age = employee[x].age ;
+			var marital = employee[x].marital ;
+			var employment = employee[x].employment;
+			var city = employee[x].city;
+
+			output += '<tr>' + '<td>' + name + '</td>' + '<td>' + age + '</td>' + '<td>' + marital + '</td>' + '<td>' + employment + '</td>' + '<td>' + city + '</td>' + '</tr>';
+		}
+		
+		
+		output += "</table>";
+			document.getElementById("output").innerHTML = output;
+
+		let total = 0;
+		var y = 0;
+		var averageAge = 0;
+		while( y < employee.length){
+			total += employee[y].age;
+			averageAge = total / employee.length;
+			y++;
+		}	
+		document.getElementById("total").innerHTML = Math.floor(averageAge);	
+		</script>
+	</body>
+</html>
